@@ -24,6 +24,9 @@ angular.module('teamform-team-app', ['firebase'])
 	$scope.param = {
 		"teamName" : '',
 		"currentTeamSize" : 0,
+		"description" : "",
+		"image" : "",
+		"tags": [],
 		"teamMembers" : []
 	};
 		
