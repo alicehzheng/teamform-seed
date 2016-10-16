@@ -19,31 +19,41 @@ angular.module('teamform-member-app', ['firebase'])
 	// Call Firebase initialization code defined in site.js
 	initalizeFirebase();
 	
-	$scope.userID = "";
-	$scope.userName = "";	
-	$scope.teams = {};
-	
+	//Set initial data for member
+	//$scope.userID = "";
+	//$scope.userName = "";	
+	//$scope.teams = {};
+	$scope.input = {
+			userID: "",
+			userName: "",
+			description: "",
+			image: "",
+			tags: {},
+			teams: {}
+		};
+	var reff = firebase.database().ref("teamform-46380");
+	$scope.memberArr = $firebaseArray(reff);
 	
 	
 	$scope.loadFunc = function() {
-		var userID = $scope.userID;
+		var userID = $scope.input.userID;
 		if ( userID !== '' ) {
 			
 			var refPath = getURLParameter("q") + "/member/" + userID;
 			retrieveOnceFirebase(firebase, refPath, function(data) {
 								
 				if ( data.child("name").val() != null ) {
-					$scope.userName = data.child("name").val();
+					$scope.input.userName = data.child("name").val();
 				} else {
-					$scope.userName = "";
+					$scope.input.userName = "";
 				}
 				
 				
 				if (data.child("selection").val() != null ) {
-					$scope.selection = data.child("selection").val();
+					$scope.input.selection = data.child("selection").val();
 				}
 				else {
-					$scope.selection = [];
+					$scope.input.selection = [];
 				}
 				$scope.$apply();
 			});
@@ -53,14 +63,14 @@ angular.module('teamform-member-app', ['firebase'])
 	$scope.saveFunc = function() {
 		
 		
-		var userID = $.trim( $scope.userID );
-		var userName = $.trim( $scope.userName );
+		var userID = $.trim( $scope.input.userID );
+		var userName = $.trim( $scope.input.userName );
 		
 		if ( userID !== '' && userName !== '' ) {
 									
 			var newData = {				
 				'name': userName,
-				'selection': $scope.selection
+				'selection': $scope.input.selection
 			};
 			
 			var refPath = getURLParameter("q") + "/member/" + userID;	
@@ -94,6 +104,7 @@ angular.module('teamform-member-app', ['firebase'])
 			else {
 				$scope.selection.push(item);
 			}
+			$scope.index.selection=$scope.selection;
 		}
 	
 	
