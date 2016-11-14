@@ -30,6 +30,7 @@
       <script src="js/script.js"></script>
       <script src="js/router.js"></script>
       <script src="js/login.js"></script>
+      <script src="js/admin.js"></script>
 
           <!-- JavaScript of this page -->
      <script src="js/index.js"></script>
@@ -67,6 +68,9 @@
                   <li><a ui-sref="events">Events</a></li>
                   <li ng-show="isLoggedIn"><a ui-sref="createProfile">MyPage</a></li>
                   <li ng-click="logout()" ng-show="isLoggedIn"><a ui-sref="logout">Logout</a></li>
+                  <div ng-controller="AdminCtrl">
+                  <li ng-click="swit()" ng-show="isAdmin"><a ui-sref="adminEvent">Edit</a></li>
+                  </div>
                 </ul>
               </div>
            </div>
