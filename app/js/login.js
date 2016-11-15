@@ -23,13 +23,13 @@ app.factory('loginService', function ($location) {
         // The signed-in user info.
         user = result.user;
         // ...some useful variables
-        var displayName = $scope.user.displayName;
-        var email = $scope.user.email;
-        var emailVerified = $scope.user.emailVerified;
-        var photoURL = $scope.user.photoURL;
-        var isAnonymous = $scope.user.isAnonymous;
-        var uid = $scope.user.uid;
-        var providerData = $scope.user.providerData;
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
         
 
       }).catch(function (error) {
@@ -51,14 +51,20 @@ app.factory('loginService', function ($location) {
     isLogged,
     isLoggedIn, 
     login,
+    user,
     updateUser: function ($scope) {
+      database.ref('TeamForm/users/' + user.uid).once('value', function(snapshot) {
+        var exists = (snapshot.val() !== null);
+      });
       firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
+        if (user && !exists) {
           database.ref('TeamForm/users/' + user.uid).set({
             name: user.displayName,
             email: (user.email ? (user.email) : null),
             profile_picture: user.photoURL,
-            description: "Hi there! My name is " + user.displayName
+            description: "Hi there! My name is " + user.displayName,
+            tags: [],
+            teams: []
           });
         } 
       });
@@ -89,11 +95,12 @@ app.controller("AuthCtrl", ['$scope', 'loginService', '$state',
     firebase.auth().onAuthStateChanged(function (user) {
        $scope.isLoggedIn = loginService.isLoggedIn.get();
        $scope.$digest();
-       if(user)$state.transitionTo("createProfile");
+       if(user)$state.transitionTo("userProfile");
        
     });
     //call logout function on click
     $scope.logout = function () {
+      alert("Goodbye!");
       loginService.logout();
     };
 
