@@ -5,8 +5,9 @@
 			<h1 class="title text-center">Events</h1>
 			<form >
 				<div class="input-group" style="margin-top: 40px">
-					<div class="form-group has-feedback">
-						<input type="text" class="form-control" placeholder="Search for Team"/>
+					<div class="form-group has-feedback" ng-controller="searchCtrl" >
+						<input type="text" class="form-control" ng-model="searchText">
+						</input>
 						<span class="glyphicon glyphicon-search form-control-feedback" style="font-size: 50%"></span>
 					</div>
 					<span class="input-group-btn">

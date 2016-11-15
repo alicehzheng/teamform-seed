@@ -1,5 +1,5 @@
-// inject firebase service
-var app = angular.module("teamform-46380", ["firebase"]); 
+
+var app = angular.module("teamformApp"); 
 
 app.controller("searchCtrl", 
 	function($scope) {
@@ -7,7 +7,7 @@ app.controller("searchCtrl",
 		$scope.startSearch = function() {
 			var text = $scope.searchText;
 			var team = null;
-			var query = firebase.database().ref("TeamForm/teams")
+			var query = firebase.database().ref("TeamForm/teams");
 			query.once("value").then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				var key = childSnapshot.key;
@@ -15,13 +15,10 @@ app.controller("searchCtrl",
 					team = key;
 					return true;
 				}
-			}
-			});
-			if(team == null)
+			})
+			if(team == null) {
 				$scope.searchText = "Team doesn't exist, search another one!";
 			}
-			else {
-				
-			}
-	}
-);
+		});
+	};
+})
