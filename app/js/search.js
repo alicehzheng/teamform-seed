@@ -1,44 +1,40 @@
 var app = angular.module("teamformApp"); 
 
-app.controller("searchCtrl", ['$scope',
-	function($scope) {
+app.factory("searchService",
+	function($firebaseArray) {
+		var database = firebase.database();
 
-		$scope.name = "BestTeamEver";
-		$scope.description="default description of the team";
-		$scope.tag1 = "tag1";
-		$scope.tag2 = "tag2";
-		$scope.tag3 = "tag3";
-		$scope.tag4 = "tag4";
-
-		$scope.searchText = "";
-		$scope.startSearch = function() {
-			var text = $scope.searchText;
-			var team = null;
-			var database = firebase.database();
-			var query = database.ref("TeamForm/teams/");
-			query.once("value").then(function(snapshot) {
-				snapshot.forEach(function(childSnapshot) {
-					var key = childSnapshot.key;
-					if(key == text || childSnapshot.child("tags/Art/" + text).exists() ||  childSnapshot.child("tags/Technology").exists()){
-						team = key;
-						return true;
-					}
-				});
-			if(team == null) {
-				$scope.searchText = "Team doesn't exist, search another one!";
+		var startSearchTeam = function(searchText) {
+			var teams = [];
+			var query = database.ref("TeamForm/teams");
+			var allTeams = $firebaseArray(query);
+			for(var i = 0; i < allTeams.length; ++i){
+				if(searchText == allTeams[i].name){
+					teams.push(allTeams[i])
+				}
 			}
-			else{
+			return teams;
+		};
 
-				$scope.searchText = team;
 
-				var query
-				$scope.searchText = team;
-				$scope.name = team;
-				
-				
-
-			}
+		var startSearchEvent = function(searchText) {
+			var events = [];
+			var ref= database.ref("TeamForm/events");
+			var allTeams = $firebaseArray(ref);
+			allTeams.forEach(function(){
+				if(searchText == allTeams[i].name){
+					events.push(allTeams[i])
+				}
 			
-		}); 
-	}
-}])
+			return events;
+			}
+			);
+		};
+
+
+		return{
+			startSearchTeam,
+			startSearchEvent
+		}
+
+})
