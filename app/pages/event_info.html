@@ -30,32 +30,32 @@
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="row" ng-repeat="team in teams" ng-if="$index % 3 == 0">
 
-						<div class="col-sm-6 col-md-4">
+						<div class="col-sm-6 col-md-4" ng-show="teams[$index]">
 							<div class="white-box" ui-sref="teamPage({id : teams[$index].$id})">
 								<img src="img/profile.png" class="img-center img-responsive img-circle" align = "middle" alt="profile" width="150" height="150">
 								<div class="caption">
 									<h3>{{teams[$index].name}}</h3>
-									<p>{{teamss[$index].description}}</p>
+									<p>{{teams[$index].description}}</p>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-sm-6 col-md-4">
+						<div class="col-sm-6 col-md-4" ng-show="teams[$index+1]">
 							<div class="white-box" ui-sref="teamPage({id : teams[$index+1].$id})">
 								<img src="img/profile.png" class="img-center img-responsive img-circle" align = "middle" alt="profile" width="150" height="150">
 								<div class="caption">
 									<h3>{{teams[$index+1].name}}</h3>
-									<p>{{teamss[$index+1].description}}</p>
+									<p>{{teams[$index+1].description}}</p>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-sm-6 col-md-4">
+						<div class="col-sm-6 col-md-4" ng-show="teams[$index+2]">
 							<div class="white-box" ui-sref="teamPage({id : teams[$index+2].$id})">
 								<img src="img/profile.png" class="img-center img-responsive img-circle" align = "middle" alt="profile" width="150" height="150">
 								<div class="caption">
 									<h3>{{teams[$index+2].name}}</h3>
-									<p>{{teamss[$index+2].description}}</p>
+									<p>{{teams[$index+2].description}}</p>
 								</div>
 							</div>
 						</div>

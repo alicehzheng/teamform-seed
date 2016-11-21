@@ -7,19 +7,16 @@ app.controller('displayEventCtrl', ['$scope', '$firebaseArray', 'searchService',
       };
       var ref= firebase.database().ref('TeamForm/events');
       $scope.events = $firebaseArray(ref);
-      $scope.goTo = function(id){
-      }
 }])
 .controller('eventCtrl', ['$scope', '$firebaseObject', '$stateParams', '$firebaseArray',
  function($scope, $firebaseObject, $stateParams, $firebaseArray){
  var ref= firebase.database().ref('TeamForm/events/'+ $stateParams.id);
- var refTeams = firebase.database().ref('TeamForm/events/'+ $stateParams.id +'/teams');
+ var refTeams = firebase.database().ref('TeamForm/teams/').orderByChild("event").equalTo($stateParams.id);
  $scope.event = $firebaseObject(ref);
+ //$scope.teams = $firebaseArray(refTeams);
  $scope.teams = $firebaseArray(refTeams);
-//  if(!$scope.event.teams){
-//    $scope.teams = [];
-//  } else
-  console.log($scope.teams);
+ console.log($scope.teams);
+  //console.log($scope.teams);
 
 
 }])

@@ -4,10 +4,11 @@
 			<div>
 				<center><img src="img/profile.png" class="img-responsive img-circle" align = "middle" alt="profile" width="200" height="200"></center>
 			</div>
-			<h1 class="title text-center">BestTeamEva</h1>
+			<h1 class="title text-center">{{team.name}}</h1>
+			<h3 class="text-center">{{team.description}}</h3>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" ng-show="isAdmin">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<textarea class="form-control" rows="5" readonly></textarea>
@@ -18,7 +19,7 @@
 		<div class="col-md-4"></div>
 	</div>
 </div>
-<div class="box">
+<div class="box" ng-show="isAdmin">
 	<div class="row">
 		<div class="col-md-12">
 			<h1 class="title text-center"> Propective Members </h1>

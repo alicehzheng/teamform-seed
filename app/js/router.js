@@ -59,6 +59,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	   .state('teamPage', {
 			url: "/teamPage/:id",
 			templateUrl: 'pages/team_info.html',
+			controller: 'teamCtrl',
 			authenticate: false
 		})
 
