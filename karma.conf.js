@@ -7,6 +7,8 @@ module.exports = function(config) {
     files: [
     'lib/jquery.min.js',
     'lib/angular.js',
+    'lib/angular-mocks.js',
+    'lib/angular.min.js',
     'lib/firebase.js',
     'lib/angularfire.min.js',
     'js/router.js',
@@ -23,16 +25,16 @@ module.exports = function(config) {
 		 //'js/team.js' : ['coverage'],
 		 //'js/member.js' : ['coverage'],
 		 //'js/createCtrl.js' : ['coverage'],
-		 'js/createEvent.js' : ['coverage']
-		 //'js/createProfile.js' : ['coverage'],
-		 //'js/createTeam.js' : ['coverage'],
+		 'js/createEvent.js' : ['coverage'],
+		 'js/createProfile.js' : ['coverage'],
+		 'js/createTeam.js' : ['coverage'],
 		 //'js/event.js' : ['coverage'],
 		 //'js/firebase_storage.js' : ['coverage'],
  		 //'js/login.js' : ['coverage'],
 	 	 //'js/recommend.js' : ['coverage'],
 		 //'js/router.js' : ['coverage'],
 		 //'js/search.js' : ['coverage'],
-		 //'js/router.js' : ['coverage']
+		 'js/router.js' : ['coverage']
 	},
 	reporters: ['progress', 'coverage'],
 	coverageReporter: {
