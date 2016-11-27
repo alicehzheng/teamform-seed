@@ -1,20 +1,6 @@
 angular.module('teamformApp')
   //everything that changes view is in controller
   //everything that's an object is in the factory
-  .factory('myProfileService', function () {
-    var queryData = function () {
-      //what did we need this for agan?
-      if (userExists()) {
-        database.ref('TeamForm/users/' + user.uid).once('value', function (info) {
-          userInfo = info.val();
-        });
-        return userInfo;
-      }
-    };
-    return {
-      queryData
-    }
-  })
 
   .controller("myProfileCtrl", ['$scope', '$state', '$stateParams',
     function ($scope, $state, $stateParams) {
@@ -37,6 +23,7 @@ angular.module('teamformApp')
       }).catch(function(error){
         // if there is no profile image get a default image.
         $scope.imgSrc = 'https://firebasestorage.googleapis.com/v0/b/teamform-46380.appspot.com/o/users%2Fprofile.png?alt=media&token=e9fc1bb3-adb0-4f4e-b490-057e738f68f0';
+         $scope.$digest();
       });
       
       $scope.submit = function () {
@@ -51,7 +38,8 @@ angular.module('teamformApp')
         database.ref('TeamForm/users/' + $stateParams.id).update({
           name: $scope.user.name,
           description: $scope.user.description,
-          tags: $scope.user.tags
+          tags: $scope.user.tags,
+          profile_pricture : 
         });
 
       };
