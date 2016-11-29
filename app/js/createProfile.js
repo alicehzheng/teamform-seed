@@ -12,7 +12,9 @@ angular.module('teamformApp')
       database.ref('TeamForm/users/' + $stateParams.id).once('value', function (info) {
         $scope.user = info.val();
         $scope.tags = info.val().tags;
-        console.log($scope.tags);
+        for(var i = 0; i < info.val().tags.length ; i++ ) {
+ 				$('#profile_tags').tokenfield('createToken', info.val().tags[i]);
+ 			}
         $scope.isAdmin = $scope.currentUser ? $scope.currentUser.uid == $stateParams.id : false;
         $scope.$digest();
       });

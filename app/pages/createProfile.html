@@ -23,6 +23,11 @@ $('#profile_tags').tokenfield({
     if (token === event.attrs.value)
       exists = false;
   })
+   var existingtokens = $(this).tokenfield('getTokens');
+   $.each(existingtokens,function(index,token){
+   	if(token.value === event.attrs.value)
+   		exists = true;
+   })
   if(exists === true)
     event.preventDefault();
 });
