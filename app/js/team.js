@@ -63,7 +63,7 @@ angular.module('teamformApp')
 
 			//can also be used to reject user.
 			$scope.leave = function () {
-				$firebaseObject(firebase.database().ref("TeamForm/RelationUT/"+$scope.relid)).$remove().then(calculate);
+				$firebaseObject(firebase.database().ref("TeamForm/RelationUT/"+relid)).$remove().then(calculate);
 			}
 
 			$scope.remove = function (id) {
