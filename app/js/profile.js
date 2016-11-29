@@ -2,7 +2,7 @@ angular.module('teamformApp')
   //everything that changes view is in controller
   //everything that's an object is in the factory
 
-  .controller("editProfileCtrl", ['$scope', '$state', '$stateParams', '$firebaseArray', '$firebaseObject',
+  .controller("myProfileCtrl", ['$scope', '$state', '$stateParams', '$firebaseArray', '$firebaseObject',
     function ($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
       $scope.currentUser = firebase.auth().currentUser;
       var database = firebase.database();
@@ -12,9 +12,6 @@ angular.module('teamformApp')
       database.ref('TeamForm/users/' + $stateParams.id).once('value', function (info) {
         $scope.user = info.val();
         $scope.tags = info.val().tags;
-        for(var i = 0; i < info.val().tags.length ; i++ ) {
- 				$('#profile_tags').tokenfield('createToken', info.val().tags[i]);
- 			}
         $scope.isAdmin = $scope.currentUser ? $scope.currentUser.uid == $stateParams.id : false;
         $scope.$digest();
       });

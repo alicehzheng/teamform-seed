@@ -14,7 +14,6 @@ $('#team_tags').tokenfield({
   createTokensOnBlur:true,
   showAutocompleteOnFocus: true
 }).on('tokenfield:createtoken', function (event) {
-	
   var exists = true;
   $.each(["Computer Science","Java","C++","Python","JavaScript","C","Assembly","Swift","AngularJS","Django",
 	"Ruby-on-Rails","Node.js","asp.net","Math","Physics","Chemistry","Biology","Science","Art","Film","Photography","Photoshop",
@@ -24,10 +23,10 @@ $('#team_tags').tokenfield({
       exists = false;
   })
   var existingtokens = $(this).tokenfield('getTokens');
-  $.each(existingtokens,function(index,token){
-  	if(token.value === event.attrs.value)
-  		exists = true;
-  })
+   $.each(existingtokens,function(index,token){
+   	if(token.value === event.attrs.value)
+   		exists = true;
+   })
   if(exists === true)
     event.preventDefault();
 });

@@ -75,9 +75,9 @@ app.controller('editTeamCtrl',
 		$firebaseObject(ref).$loaded().then(function (info) {
 			$scope.team = info;
 			$scope.tags = info.tags;
-			for(var i = 0; i < info.tags.length ; i++ ) {
-				$('#team_tags').tokenfield('createToken', info.tags[i]);
-			}
+ 			for(var i = 0; i < info.tags.length ; i++ ) {
+ 				$('#team_tags').tokenfield('createToken', info.tags[i]);
+ 			}
 		});
 
 
@@ -107,7 +107,7 @@ app.controller('editTeamCtrl',
 				var re = new RegExp(", |,");
 				var tags = inputtags.split(re);
 				if (tags[tags.length - 1] == "")
-				tags.splice(tags.length - 1, 1);
+					tags.splice(tags.length - 1,1);
 				$scope.team.tags = tags;
 				// add an input event
 				database.ref('TeamForm/teams/' + $stateParams.id).update({

@@ -39,6 +39,7 @@ app.controller('createEventCtrl',
 				$scope.input.icon = 'https://firebasestorage.googleapis.com/v0/b/teamform-46380.appspot.com/o/users%2Fprofile.png?alt=media&token=e9fc1bb3-adb0-4f4e-b490-057e738f68f0';
 				// add an input event
 				$scope.events.$add($scope.input).then(function(ref) {
+					console.log(ref.key);
 					$state.go("eventPage", {id: ref.key});
 				});
 			}
@@ -54,20 +55,21 @@ app.controller('createEventCtrl',
 		var storage = firebase.storage();
 		$firebaseObject(ref).$loaded().then(function (info) {
 			$scope.event = info;
+			$scope.tags = info.tags.join(", ");
+			//$scope.$digest();
 			$scope.tags = info.tags;
-			for(var i = 0; i < info.tags.length ; i++ ) {
-				$('#event_tags').tokenfield('createToken', info.tags[i]);
-			}
-			
+ 			for(var i = 0; i < info.tags.length ; i++ ) {
+ 				$('#event_tags').tokenfield('createToken', info.tags[i]);
+ 			}
 		});
 
 		$scope.submit = function () {
-			
 			var inputtags = $('#event_tags').tokenfield('getTokensList');
 			var re = new RegExp(", |,");
 			var tags = inputtags.split(re);
-			if (tags[tags.length - 1] == "")
+			if (tags[tags.length - 1] == "") {
 				tags.splice(tags.length - 1, 1);
+			}
 
 			$scope.event.tags = tags;
 			database.ref('TeamForm/events/' + $stateParams.id).update({
@@ -109,4 +111,3 @@ app.controller('createEventCtrl',
 	     }
 
 	});
-	

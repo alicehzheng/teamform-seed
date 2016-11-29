@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('myProfile', {
             url: '/profile/:id',
             templateUrl: 'pages/createProfile.html',
-            controller: 'myProfileCtrl',
+            controller: 'editProfileCtrl',
             authenticate: true,
             resolve: {
                 "currentAuth": function($firebaseAuth) {
