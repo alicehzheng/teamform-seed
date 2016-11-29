@@ -71,6 +71,7 @@ app.controller('displayEventCtrl', ['$scope', '$firebaseArray',
                         var toadTeam = team;
                         toadTeam.memberNbr = teams.length;
                         $scope.teams.push(toadTeam);
+                        console.log($scope.teams);
                     });
                 });
                 

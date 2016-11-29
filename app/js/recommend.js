@@ -2,7 +2,7 @@ var app = angular.module("teamformApp");
 app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$state', '$stateParams',
   function ($firebaseArray, $scope, $location,  $state, $stateParams) {
     var database = firebase.database();
-    var events = [];
+    var events;
     var teams = {};
     var userTags = {};
     var userSubs = [];
@@ -69,7 +69,7 @@ app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$stat
           events = e;
           compareEventTags();
           if(recEvents) recEvents.sort(sortEvents);
-          //else alert("sorry we have no recommendations yet");
+          else alert("sorry we have no recommendations yet");
           $scope.testing = recEvents;
         });
       });
@@ -80,12 +80,12 @@ app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$stat
       var userRef = database.ref('TeamForm/users/' + user.uid + '/tags');
       $firebaseArray(userRef).$loaded().then(function (u) {
         userTags = u;
-        var eventRef = database.ref('TeamForm/teams/').orderByChild("event").equalTo($stateParams.id);;
+        var eventRef = database.ref('TeamForm/teams' + $stateParams.id);
         $firebaseArray(eventRef).$loaded().then(function (e) {
           events = e;
           compareEventTags();
           if(recEvents) recEvents.sort(sortEvents);
-          //else alert("sorry we have no recommendations yet");
+          else alert("sorry we have no recommendations yet");
           $scope.testing = recEvents;
         });
       });

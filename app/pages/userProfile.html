@@ -1,5 +1,3 @@
-
-
 <div class="container-fluid">
 	<div class="row create-box">
 		<h1 class="title text-center">{{user.name}}'s Profile</h1>
@@ -26,12 +24,13 @@
 			<div class="form ui-widget">
 				<label for="tags">Teams</label>
 				<div class="tags" ng-repeat="team in teams">
-					<span class="label label-info" style="cursor: pointer" ui-sref="teamPage({id : team.ref})">{{team.name}} </span>
+					<span class="label label-info" ui-sref="teamPage({id : team.ref})">{{team.name}}</span>
 				</div>
 			</div>
 			<div class="text-center" ng-show="isAdmin">
 				<button type="button" class="btn btn-info btn-lg" ui-sref="myProfile({id : currentUser.uid})">Edit</button>
 			</div>
+			
 		</div>
 
 	</div>
