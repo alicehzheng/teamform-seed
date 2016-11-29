@@ -64,7 +64,7 @@ $('#event_tags').tokenfield({
  				<input id="event_tags" name="tags" class="form-control" ng-model="tags" required>
 			</div>
 
-			<div class="text-center">
+			<div class="bottom-box text-center">
 				<button type="button" class="btn btn-success" ng-click="submit()" ui-sref="eventPage({id : event.$id})" ng-disabled="!event.description || !event.name || !tags">submit</button>
 			</div>
 		</form>
