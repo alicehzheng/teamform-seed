@@ -20,9 +20,9 @@
 					<strong>Sorry!</strong> We could not find any recommendations for you.
 				</div>
 				<div class="col-lg-10 col-lg-offset-1">
-					<div class="row" ng-repeat="test in testing track by $index" " ng-if="$index % 3==0 ">
+					<div class="row" ng-repeat="test in testing track by $index" ng-if="$index % 3==0">
 						<div class="col-sm-6 col-md-4 ">
-							<div class="white-box " ui-sref="eventPage({id : testing[$index].$id}) ">
+							<div class="white-box" style="cursor: pointer" ui-sref="eventPage({id : testing[$index].$id}) ">
 									<img src="{{testing[$index].icon}} " class="img-center img-responsive img-circle " align = "middle " alt="profile
 						" width="150 " height="150 " ></a>
 								<div class="caption ">
@@ -33,7 +33,7 @@
 						</div>
 
 						<div class="col-sm-6 col-md-4 " ng-show="testing[$index+1] ">
-							<div class="white-box "  ui-sref="eventPage({id : testing[$index+1].$id}) ">
+							<div class="white-box" style="cursor: pointer"  ui-sref="eventPage({id : testing[$index+1].$id}) ">
 								<img src="{{testing[$index+1].icon}} " class="img-center img-responsive img-circle " align = "middle " alt="profile
 						" width="150 " height="150 ">
 								<div class="caption ">
@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="col-sm-6 col-md-4 " ng-show="testing[$index+2] ">
-							<div class="white-box "  ui-sref="eventPage({id : testing[$index+2].$id}) ">
+							<div class="white-box "  style="cursor: pointer" ui-sref="eventPage({id : testing[$index+2].$id}) ">
 								<img src="{{testing[$index+2].icon}} " class="img-center img-responsive img-circle " align = "middle " alt="profile
 						" width="150 " height="150 ">
 								<div class="caption ">

@@ -13,8 +13,8 @@
 					</div>
 
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true" ng-click="startSearch()"></i></button>
-						<button class="btn btn-default" type="button" ui-sref="recTeams({id : event.$id})"><i class="fa fa-magic" aria-hidden="true"></i></button>
+						<button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true" ng-click="startSearch()" title="Search"></i></button>
+						<button class="btn btn-default" type="button" ui-sref="recTeams({id : event.$id})"><i class="fa fa-magic" aria-hidden="true" title="Recommend Teams"></i></button>
 					</span>
 				</div>
 				<div class="input-group input-box">
@@ -37,7 +37,7 @@
 					<div class="row" ng-repeat="team in teams" ng-if="$index % 3 == 0">
 
 						<div class="col-sm-6 col-md-4" ng-show="teams[$index]">
-							<div class="white-box" ui-sref="teamPage({id : teams[$index].$id})" style="cursor: : pointer">
+							<div class="white-box" style="cursor: pointer" ui-sref="teamPage({id : teams[$index].$id})" style="cursor: : pointer">
 								<img ng-src="{{teams[$index].icon}}" class="img-center img-responsive img-circle" align="middle" alt="No Image" width="150"
 									height="150">
 								<div class="caption">
@@ -50,7 +50,7 @@
 						</div>
 
 						<div class="col-sm-6 col-md-4" ng-show="teams[$index+1]">
-							<div class="white-box" ui-sref="teamPage({id : teams[$index+1].$id})" style="cursor: : pointer">
+							<div class="white-box" style="cursor: pointer" ui-sref="teamPage({id : teams[$index+1].$id})" style="cursor: : pointer">
 								<img ng-src="{{teams[$index+1].icon}}" class="img-center img-responsive img-circle" align="middle" alt="No Image" width="150"
 									height="150">
 								<div class="caption">
@@ -63,7 +63,7 @@
 						</div>
 
 						<div class="col-sm-6 col-md-4" ng-show="teams[$index+2]">
-							<div class="white-box" ui-sref="teamPage({id : teams[$index+2].$id})" style="cursor: : pointer">
+							<div class="white-box" style="cursor: pointer" ui-sref="teamPage({id : teams[$index+2].$id})" style="cursor: : pointer">
 								<img ng-src="{{teams[$index+2].icon}}" class="img-center img-responsive img-circle" align="middle" alt="No Image" width="150"
 									height="150">
 								<div class="caption">
