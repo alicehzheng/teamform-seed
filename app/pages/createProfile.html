@@ -65,11 +65,11 @@ $('#profile_tags').tokenfield({
 			</div>
 			<div class="form form-group">
 				<label >Teams</label>
-				<div ng-repeat="team in teams">
+				<div class="tags" ng-repeat="team in teams">
 					<span class="label label-info" ui-sref="teamPage({id : team.ref})">{{team.name}}</span>
 				</div>
 			</div>
-			<div class="text-center">
+			<div class="bottom-box text-center">
 				<button type="button" ng-click="submit()" class="btn btn-success btn-lg" ui-sref="userProfile({id : currentUser.uid})" ng-disabled="!user.name && !user.description">Save</button>
 			</div>
 		</div>

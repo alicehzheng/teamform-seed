@@ -61,6 +61,13 @@ div.input-box{
 	margin-top: 40px;
 	width: 60%;
 }
+div.bottom-box{
+	margin-bottom: 30px;
+}
+div.bottom-box>button{
+	width: 60%;
+	font-size: 20px;
+}
 div.tags{
 	font-size: 18px;
 	display: inline-block;
@@ -126,7 +133,10 @@ i.fa-circle{
 	color: #1E88E5;
 }
 li.ui-menu-item{
-	font-size: 18px;
+	font-size: 20px;
+}
+span.label{
+	font-size: 80%;
 }
 .btm-right{
 	position: fixed;
