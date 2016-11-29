@@ -8,14 +8,14 @@ color
 */
 /* font */
 @import url('https://fonts.googleapis.com/css?family=Lobster|Montserrat|Roboto');
-
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 h3.disc{
 	width: 60%;
 	margin: auto;
 }
 body{
 	background-color: #E3F2FD; /*blue 50*/
-	font-family: 'Roboto', serif;
+	font-family: 'Roboto', 'Nanum Gothic Coding', serif;
 	font-size: 48px;
 }
 div.inline{
