@@ -69,7 +69,7 @@ app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$stat
           events = e;
           compareEventTags();
           if(recEvents) recEvents.sort(sortEvents);
-          else alert("sorry we have no recommendations yet");
+          //else alert("sorry we have no recommendations yet");
           $scope.testing = recEvents;
         });
       });
@@ -85,7 +85,7 @@ app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$stat
           events = e;
           compareEventTags();
           if(recEvents) recEvents.sort(sortEvents);
-          else alert("sorry we have no recommendations yet");
+          //else alert("sorry we have no recommendations yet");
           $scope.testing = recEvents;
         });
       });
