@@ -57,8 +57,6 @@ app.controller('recommendCtrl', ['$firebaseArray', '$scope', '$location', '$stat
     };
     $scope.orig = $stateParams.id;
 
-
-
     var getRecommendations = function () {
       var user = firebase.auth().currentUser;
       var userRef = database.ref('TeamForm/users/' + user.uid + '/tags');
