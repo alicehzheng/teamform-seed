@@ -29,7 +29,7 @@ angular.module('teamformApp')
 					data.forEach(function (value, index) {
 						if (user && user.uid == value.user) {
 							$scope.joined = true;
-							relid = index;
+							relid = value.$id;
 						}
 						if (value.accepted) {
 							$firebaseObject(firebase.database().ref("TeamForm/users/" + value.user)).$loaded().then(function (data) {
@@ -63,7 +63,7 @@ angular.module('teamformApp')
 
 			//can also be used to reject user.
 			$scope.leave = function () {
-				$scope.relations.$remove(relid).then(calculate);
+				$firebaseObject(firebase.database().ref("TeamForm/RelationUT/"+relid)).$remove().then(calculate);
 			}
 
 			$scope.remove = function (id) {
