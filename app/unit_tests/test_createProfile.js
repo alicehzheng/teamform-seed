@@ -13,7 +13,7 @@ describe('test createProfile', function() {
 	});
 	describe('test createProfile functions', function() {
 		var controller, scope, state, stateParams, firebaseArray, firebaseObject;
-		beforeEach(function() {
+		beforeEach(function($rootScope) {
 			scope=$rootScope.$new();
 			state = $state;
 			stateParams = $stateParams;
