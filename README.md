@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-# teamform-seed modified the Xth times....
-## The introductino to team-forming, the single-webpage application
-=======
-# teamform-seed modified the 4th times....
-## The seed project for the team forming web application
->>>>>>> hkpeterpeter/master
 
-## Server is needed to execute the single-webpage app
+## Introduction to Team-Forming Web Application
+
 
 ## Recommendation Algorithm 2.0
  1. distribute points based on tag being idenical, in the same subcategory or in the same category.
@@ -44,32 +38,11 @@ app/                    --> all of the source files for the application
   
 ```
 
-## Testing
 
-### Running Unit Tests
-
- We provide a Karma configuration file to run them.
-
-* the configuration is found at `karma.conf.js`
-* all unit test cases should be written inside the folder `app/unit_tests`
-
-The easiest way to run the unit tests is to use the supplied npm script:
-
-```
-npm test
-```
-
-This script will start the Karma test runner to execute the unit tests. 
-In this course, we will mainly focus on the branch and statement coverage. 
-The output files will be stored inside the `app/coverage` folder. 
-
-## Addtional information for COMP3111H students
-
-Besides from web development, COMP3111H team needs to work on a mobile app (iOS and Android). We recommend your team to use Ionic framework [http://ionicframework.com/] (http://ionicframework.com/). Ionic framework is based on AngularJS. Features completed in Angular can be easily ported to Ionic.   
 
 ## Reference
 
-For more information, please checkout:
+
 
 * Full Firebase 3.0+ API: https://firebase.google.com/docs/reference/
 * Full AngularFire 2.0+ API: https://github.com/firebase/angularfire/blob/master/docs/reference.md
